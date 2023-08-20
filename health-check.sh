@@ -1,6 +1,6 @@
 commit=true
 origin=$(git remote get-url origin)
-if [[ $origin == *Zaid-maker/status-page* ]]
+if [[ $origin == *DevMirza-Blog/uptime* ]]
 then
   commit=true
 fi
@@ -47,7 +47,7 @@ do
   then
     echo $dateTime, $result >> "logs/${key}_report.log"
     # By default we keep 4000 last log entries.  Feel free to modify this to meet your needs.
-    echo "$(tail -15000 logs/${key}_report.log)" > "logs/${key}_report.log"
+    echo "$(tail -4000 logs/${key}_report.log)" > "logs/${key}_report.log"
   else
     echo "    $dateTime, $result"
   fi
@@ -56,8 +56,8 @@ done
 if [[ $commit == true ]]
 then
   # Let's make Vijaye the most productive person on GitHub.
-  git config --global user.name 'devmirza-bot'
-  git config --global user.email 'mirzazaid4740@gmail.com'
+  git config --global user.name 'Zaid-maker'
+  git config --global user.email 'pzhafeez@gmail.com'
   git add -A --force logs/
   git commit -am '[Automated] Update Health Check Logs'
   git push
